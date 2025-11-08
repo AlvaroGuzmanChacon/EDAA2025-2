@@ -37,7 +37,6 @@ class sparse_table
 
     public:
         sparse_table(const std::vector<T> &A, std::function<T(T, T)> F)
-  // Devería usar F = std::min(), no?
         {
             if (A.size() == 0) {
                 std::cerr << "Invalid input array: must be non-empty." << std::endl;
