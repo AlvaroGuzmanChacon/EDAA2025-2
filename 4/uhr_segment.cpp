@@ -23,6 +23,7 @@
 #include <string>
 #include <vector>
 #include "segment_tree.cpp"
+#include "sparse_table.cpp"
 
 // Include to be tested files here
 
@@ -165,7 +166,7 @@ int main(int argc, char *argv[])
     // Run to compute elapsed time
     for (i = 0; i < runs; i++) {
       // Remember to change total depending on step type
-      display_progress(++executed_runs, total_runs_muladditive);
+      display_progress(++executed_runs, total_runs_multiplicative);
 
       begin_time = std::chrono::high_resolution_clock::now();
       segment_tree<int> seg_tree(vec);
@@ -206,10 +207,10 @@ int main(int argc, char *argv[])
     // Run to compute elapsed time
     for (i = 0; i < runs; i++) {
       // Remember to change total depending on step type
-      display_progress(++executed_runs, total_runs_muladditive);
+      display_progress(++executed_runs, total_runs_multiplicative);
 
       begin_time = std::chrono::high_resolution_clock::now();
-      sparse_rable<int> sparse_table(vec, std::min<int>);
+      sparse_table<int> spr_table(vec);
       // Function to test goes here
       end_time = std::chrono::high_resolution_clock::now();
 
