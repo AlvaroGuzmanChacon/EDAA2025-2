@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 #include "../sparse_table.cpp"
 
-int UPPER = 10000;
+int UPPER = 100000000;
 
 int main() {
 
@@ -10,9 +10,9 @@ int main() {
   std::iota(vec.begin(), vec.end(), 1);
   int i;
   int n = UPPER;
-  for (i = 1; i < n; ++i) {
+  for (i = 1; i < n; i*=2) {
     // Aquí insertas elementos en la EDD para ver como va creciendo
-    sparse_table<int> sp_table(std::vector(vec.begin(), vec.begin()+i));
+    sparse_table<int> sp_table(std::vector<int>(vec.begin(), vec.begin()+i));
   }
 
   return 0;

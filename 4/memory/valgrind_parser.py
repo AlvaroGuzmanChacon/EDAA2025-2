@@ -1,6 +1,7 @@
 # Autor: Kano10
 
 import csv
+import sys
 
 def parse_massif_file(input_file, output_file):
     # Prepare data to write to CSV
@@ -46,8 +47,11 @@ def parse_massif_file(input_file, output_file):
 
     print(f'CSV file created: {output_file}')
 
-# Example usage
-input_file = 'massif.out.1199'
-output_file = 'sp_table_size.csv'
 
-parse_massif_file(input_file, output_file)
+if __name__ == "__main__":
+    # Example usageinput_file
+    #input_file = 'massif.out.1199'
+    #output_file = 'sp_table_size.csv'
+    input_file = sys.argv[0]
+    output_file = sys.argv[1]
+    parse_massif_file(input_file, output_file)
