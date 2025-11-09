@@ -50,7 +50,7 @@ class segment_tree
         }
  
         // Answers min A[i:j] in O(lg n) time
-        T query(uint64_t i, uint64_t j)
+        T RMQ(uint64_t i, uint64_t j)
         {
             uint64_t n = ST.size() >> 1;
 

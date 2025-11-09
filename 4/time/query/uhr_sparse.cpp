@@ -145,7 +145,6 @@ int main(int argc, char *argv[])
   // Set up random number generation
   std::random_device rd;
   std::mt19937_64 rng(rd());
-  std::uniform_int_distribution<std::int64_t> u_distr; // change depending on app
 
   // File to write time data
   std::ofstream time_data;
@@ -153,24 +152,28 @@ int main(int argc, char *argv[])
   time_data << "n,t_mean,t_stdev,t_Q0,t_Q1,t_Q2,t_Q3,t_Q4,structure" << std::endl;
 
   // Begin testing
+  std::vector<int> vec(UPPER);
+  std::generate(vec.begin(), vec.end(), [&]() {return u_distr(rng);});
+  sparse_table<int> sp_table(vec);
+
   std::cout << "\033[0;36mRunning tests...\033[0m" << std::endl << std::endl;
   executed_runs = 0;
-
   for (n = lower; n <= upper; n *= step) {
+    std::uniform_int_distribution<std::int64_t> u_distr(0,UPPER-n-1); // change depending on app
     mean_time = 0;
     time_stdev = 0;
 
     // Test configuration goes here
-    std::vector<int> vec(n);
-    std::generate(vec.begin(), vec.end(), [&]() {return u_distr(rng);});
     // Run to compute elapsed time
     for (i = 0; i < runs; i++) {
       // Remember to change total depending on step type
       display_progress(++executed_runs, total_runs_multiplicative);
+      int randomIndex = u_distr(rng);
 
       begin_time = std::chrono::high_resolution_clock::now();
-      sparse_table<int> spr_table(vec);
       // Function to test goes here
+      sp_table.RMQ(randomIndex, randomIndex+n);
+
       end_time = std::chrono::high_resolution_clock::now();
 
       elapsed_time = end_time - begin_time;
