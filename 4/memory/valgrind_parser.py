@@ -52,6 +52,6 @@ if __name__ == "__main__":
     # Example usageinput_file
     #input_file = 'massif.out.1199'
     #output_file = 'sp_table_size.csv'
-    input_file = sys.argv[0]
-    output_file = sys.argv[1]
+    input_file = sys.argv[1]
+    output_file = sys.argv[2]
     parse_massif_file(input_file, output_file)
