@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 #include "../segment_tree.cpp"
 
-int UPPER = (1<<30);
+int UPPER = (1<<28);
 
 int main() {
 
