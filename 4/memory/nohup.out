@@ -1,0 +1,14 @@
+==3214428== Massif, a heap profiler
+==3214428== Copyright (C) 2003-2017, and GNU GPL'd, by Nicholas Nethercote
+==3214428== Using Valgrind-3.16.1 and LibVEX; rerun with -h for copyright info
+==3214428== Command: ./sp_groesse
+==3214428== 
+==3214428== 
+CSV file created: sp_table_size.csv
+==3236174== Massif, a heap profiler
+==3236174== Copyright (C) 2003-2017, and GNU GPL'd, by Nicholas Nethercote
+==3236174== Using Valgrind-3.16.1 and LibVEX; rerun with -h for copyright info
+==3236174== Command: ./seg_groesse
+==3236174== 
+==3236174== 
+CSV file created: seg_table_size.csv
