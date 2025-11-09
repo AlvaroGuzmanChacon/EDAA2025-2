@@ -160,7 +160,7 @@ int main(int argc, char *argv[])
   std::cout << "\033[0;36mRunning tests...\033[0m" << std::endl << std::endl;
   executed_runs = 0;
   for (n = lower; n <= upper; n *= step) {
-    std::uniform_int_distribution<std::int64_t> u_distr(0,UPPER-n-1); // change depending on app
+    std::uniform_int_distribution<std::int64_t> u_distr(0,upper-n-1); // change depending on app
     mean_time = 0;
     time_stdev = 0;
 
