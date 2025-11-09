@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 #include "../sparse_table.cpp"
 
-int UPPER = (1<<26);
+int UPPER = (1<<30);
 
 int main() {
 
