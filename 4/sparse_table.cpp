@@ -24,6 +24,7 @@ private:
   std::vector<std::vector<T> > ST;
 
   // Returns floor(lg(n))
+  /*
   inline uint64_t _lg(uint64_t n)
   {
     if (n == 0) {
@@ -33,7 +34,21 @@ private:
 
     return std::bit_width(n) - 1;
   }
+  */
 
+  // Returns floor(lg(n))
+  inline uint64_t _lg(uint64_t n)
+  {
+    if (n == 0) {
+        return 0; // bit_width(0) is 0
+    }
+    unsigned int width = 0;
+    while (n > 0) {
+        n >>= 1; // Right shift by 1 bit
+        width++;
+    }
+    return width-1;
+  }
 public:
   //sparse_table(const std::vector<T> &A, std::function<T(T, T)> F)
   sparse_table(const std::vector<T> &A)
