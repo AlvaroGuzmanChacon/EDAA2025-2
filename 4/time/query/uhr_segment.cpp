@@ -153,7 +153,7 @@ int main(int argc, char *argv[])
   time_data << "n,t_mean,t_stdev,t_Q0,t_Q1,t_Q2,t_Q3,t_Q4,structure" << std::endl;
 
   // Begin testing
-  std::vector<int> vec(UPPER);
+  std::vector<int> vec(upper);
   std::generate(vec.begin(), vec.end(), [&]() {return u_int(rng);});
   segment_tree<int> seg_tree(vec);
 
