@@ -145,6 +145,7 @@ int main(int argc, char *argv[])
   // Set up random number generation
   std::random_device rd;
   std::mt19937_64 rng(rd());
+  std::uniform_int_distribution<std::int64_t> u_int; // change depending on app
 
   // File to write time data
   std::ofstream time_data;
@@ -153,7 +154,7 @@ int main(int argc, char *argv[])
 
   // Begin testing
   std::vector<int> vec(UPPER);
-  std::generate(vec.begin(), vec.end(), [&]() {return u_distr(rng);});
+  std::generate(vec.begin(), vec.end(), [&]() {return u_int(rng);});
   sparse_table<int> sp_table(vec);
 
   std::cout << "\033[0;36mRunning tests...\033[0m" << std::endl << std::endl;
