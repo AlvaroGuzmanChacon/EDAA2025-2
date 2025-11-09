@@ -22,7 +22,7 @@
 #include <stdexcept>
 #include <string>
 #include <vector>
-#include "../../sparse_table.cpp"
+#include "sparse_table.cpp"
 
 // Include to be tested files here
 

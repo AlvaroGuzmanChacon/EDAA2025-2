@@ -23,7 +23,6 @@
 #include <string>
 #include <vector>
 #include "segment_tree.cpp"
-#include "sparse_table.cpp"
 
 // Include to be tested files here
 
@@ -195,47 +194,6 @@ int main(int argc, char *argv[])
     time_data << n << "," << mean_time << "," << time_stdev << ",";
     time_data << q[0] << "," << q[1] << "," << q[2] << "," << q[3] << "," << q[4] << ";";
     time_data << "Segment Tree" << std::endl;
-  }
-
-  for (n = lower; n <= upper; n *= step) {
-    mean_time = 0;
-    time_stdev = 0;
-
-    // Test configuration goes here
-    std::vector<int> vec(n);
-    std::generate(vec.begin(), vec.end(), [&]() {return u_distr(rng);});
-    // Run to compute elapsed time
-    for (i = 0; i < runs; i++) {
-      // Remember to change total depending on step type
-      display_progress(++executed_runs, total_runs_multiplicative);
-
-      begin_time = std::chrono::high_resolution_clock::now();
-      sparse_table<int> spr_table(vec);
-      // Function to test goes here
-      end_time = std::chrono::high_resolution_clock::now();
-
-      elapsed_time = end_time - begin_time;
-      times[i] = elapsed_time.count();
-
-      mean_time += times[i];
-    }
-
-    // Compute statistics
-    mean_time /= runs;
-
-    for (i = 0; i < runs; i++) {
-      dev = times[i] - mean_time;
-      time_stdev += dev * dev;
-    }
-
-    time_stdev /= runs - 1; // Subtract 1 to get unbiased estimator
-    time_stdev = std::sqrt(time_stdev);
-
-    quartiles(times, q);
-
-    time_data << n << "," << mean_time << "," << time_stdev << ",";
-    time_data << q[0] << "," << q[1] << "," << q[2] << "," << q[3] << "," << q[4] << ";";
-    time_data << "Sparse Table" << std::endl;
   }
 
   // This is to keep loading bar after testing

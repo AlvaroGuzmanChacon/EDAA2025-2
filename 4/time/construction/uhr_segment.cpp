@@ -22,7 +22,7 @@
 #include <stdexcept>
 #include <string>
 #include <vector>
-#include "segment_tree.cpp"
+#include "../../segment_tree.cpp"
 
 // Include to be tested files here
 

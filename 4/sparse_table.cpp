@@ -16,6 +16,7 @@
 #include <iostream>
 #include <numeric>
 #include <vector>
+#include <bit>
 
 template<class T>
 class sparse_table
@@ -24,7 +25,6 @@ private:
   std::vector<std::vector<T> > ST;
 
   // Returns floor(lg(n))
-  /*
   inline uint64_t _lg(uint64_t n)
   {
     if (n == 0) {
@@ -34,8 +34,8 @@ private:
 
     return std::bit_width(n) - 1;
   }
-  */
 
+  /*
   // Returns floor(lg(n))
   inline uint64_t _lg(uint64_t n)
   {
@@ -49,6 +49,7 @@ private:
     }
     return width-1;
   }
+  */
 public:
   //sparse_table(const std::vector<T> &A, std::function<T(T, T)> F)
   sparse_table(const std::vector<T> &A)
