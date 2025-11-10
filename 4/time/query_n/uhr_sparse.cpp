@@ -22,7 +22,7 @@
 #include <stdexcept>
 #include <string>
 #include <vector>
-#include "../../segment_tree.cpp"
+#include "../../sparse_table.cpp"
 
 // Include to be tested files here
 
@@ -145,7 +145,7 @@ int main(int argc, char *argv[])
   // Set up random number generation
   std::random_device rd;
   std::mt19937_64 rng(rd());
-  std::uniform_int_distribution<std::int64_t> u_int; // change depending on app
+  std::uniform_int_distribution<std::int64_t> u_distr; // change depending on app
 
   // File to write time data
   std::ofstream time_data;
@@ -153,28 +153,31 @@ int main(int argc, char *argv[])
   time_data << "n,t_mean,t_stdev,t_Q0,t_Q1,t_Q2,t_Q3,t_Q4,Estructura" << std::endl;
 
   // Begin testing
-  std::vector<int> vec(upper);
-  std::generate(vec.begin(), vec.end(), [&]() {return u_int(rng);});
-  segment_tree<int> seg_tree(vec);
-
   std::cout << "\033[0;36mRunning tests...\033[0m" << std::endl << std::endl;
   executed_runs = 0;
-  for (n = lower; n < upper; n *= step) {
-    std::uniform_int_distribution<std::int64_t> u_distr(0,upper-n-1); // change depending on app
+
+  for (n = lower; n <= upper; n *= step) {
     mean_time = 0;
     time_stdev = 0;
 
     // Test configuration goes here
+    std::vector<int> vec(n);
+    std::generate(vec.begin(), vec.end(), [&]() {return u_distr(rng);});
+    sparse_table<int> spr_table(vec);
+    std::uniform_int_distribution<std::int64_t> u_idx(0,n-2); // change depending on app
     // Run to compute elapsed time
     for (i = 0; i < runs; i++) {
       // Remember to change total depending on step type
       display_progress(++executed_runs, total_runs_multiplicative);
-      int randomIndex = u_distr(rng);
+      int randomIndex_i = u_distr(rng);
+      int randomIndex_j = u_distr(rng);
+
+      int index_i = std::min(randomIndex_j, randomIndex_i);
+      int index_j = std::max(randomIndex_j, randomIndex_i)+1;
 
       begin_time = std::chrono::high_resolution_clock::now();
       // Function to test goes here
-      seg_tree.RMQ(randomIndex, randomIndex+n);
-
+      spr_table.RMQ(index_i, index_j);
       end_time = std::chrono::high_resolution_clock::now();
 
       elapsed_time = end_time - begin_time;
@@ -198,7 +201,7 @@ int main(int argc, char *argv[])
 
     time_data << n << "," << mean_time << "," << time_stdev << ",";
     time_data << q[0] << "," << q[1] << "," << q[2] << "," << q[3] << "," << q[4] << ",";
-    time_data << "Segment Tree" << std::endl;
+    time_data << "Sparse Table" << std::endl;
   }
 
   // This is to keep loading bar after testing

@@ -150,7 +150,7 @@ int main(int argc, char *argv[])
   // File to write time data
   std::ofstream time_data;
   time_data.open(argv[1]);
-  time_data << "n,t_mean,t_stdev,t_Q0,t_Q1,t_Q2,t_Q3,t_Q4,structure" << std::endl;
+  time_data << "n,t_mean,t_stdev,t_Q0,t_Q1,t_Q2,t_Q3,t_Q4,Estructura" << std::endl;
 
   // Begin testing
   std::cout << "\033[0;36mRunning tests...\033[0m" << std::endl << std::endl;

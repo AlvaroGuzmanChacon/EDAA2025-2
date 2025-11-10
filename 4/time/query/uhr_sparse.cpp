@@ -150,7 +150,7 @@ int main(int argc, char *argv[])
   // File to write time data
   std::ofstream time_data;
   time_data.open(argv[1]);
-  time_data << "n,t_mean,t_stdev,t_Q0,t_Q1,t_Q2,t_Q3,t_Q4,structure" << std::endl;
+  time_data << "n,t_mean,t_stdev,t_Q0,t_Q1,t_Q2,t_Q3,t_Q4,Estructura" << std::endl;
 
   // Begin testing
   std::vector<int> vec(upper);
@@ -197,7 +197,7 @@ int main(int argc, char *argv[])
     quartiles(times, q);
 
     time_data << n << "," << mean_time << "," << time_stdev << ",";
-    time_data << q[0] << "," << q[1] << "," << q[2] << "," << q[3] << "," << q[4] << ";";
+    time_data << q[0] << "," << q[1] << "," << q[2] << "," << q[3] << "," << q[4] << ",";
     time_data << "Sparse Table" << std::endl;
   }
 
