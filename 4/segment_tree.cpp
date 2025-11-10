@@ -55,7 +55,7 @@ class segment_tree
             uint64_t n = ST.size() >> 1;
 
             if (i >= j || j > n) {
-                std::cerr << "Invalid query " << i << " " << j << std::endl;
+                std::cerr << "Invalid query " << i << " " << j << " " << n << std::endl;
                 std::exit(EXIT_FAILURE);
             }
  
