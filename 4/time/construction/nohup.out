@@ -1,0 +1,2 @@
+./run.sh: línea 5: ./uhr_segment.cpp: Permiso denegado
+./run.sh: línea 9: ./uhr_segment.cpp: Permiso denegado
