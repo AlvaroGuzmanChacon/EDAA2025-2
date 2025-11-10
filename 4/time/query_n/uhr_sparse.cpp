@@ -169,8 +169,8 @@ int main(int argc, char *argv[])
     for (i = 0; i < runs; i++) {
       // Remember to change total depending on step type
       display_progress(++executed_runs, total_runs_multiplicative);
-      int randomIndex_i = u_distr(rng);
-      int randomIndex_j = u_distr(rng);
+      int randomIndex_i = u_idx(rng);
+      int randomIndex_j = u_idx(rng);
 
       int index_i = std::min(randomIndex_j, randomIndex_i);
       int index_j = std::max(randomIndex_j, randomIndex_i)+1;
