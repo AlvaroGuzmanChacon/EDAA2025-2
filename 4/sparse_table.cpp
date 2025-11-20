@@ -82,7 +82,7 @@ public:
   T RMQ(uint64_t i, uint64_t j)
   {
     if (i >= j || j > ST[0].size()) {
-      std::cerr << "Invalid query " << i << " " << j << " " << ST[0].size() << std::endl;
+      std::cerr << "Invalid query " << i << " " << j << std::endl;
       std::exit(EXIT_FAILURE);
     }
 
