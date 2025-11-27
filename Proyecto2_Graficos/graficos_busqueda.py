@@ -34,11 +34,11 @@ def plot_tbusqueda_occpatron(data):
 
 if __name__ == "__main__":
     #archivo_original,tamano_patron,tiempo_busqueda_ns,ocurrencias
-    df_1 = pd.read_csv("SA-busquedas1.csv")
+    df_1 = pd.read_csv("SA-busquedas.csv")
     df_1["Estructura"] = "SA"
-    df_2 = pd.read_csv("SA-LCP-busquedas1.csv")
+    df_2 = pd.read_csv("SA-LCP-busquedas.csv")
     df_2["Estructura"] = "SA+LCP"
-    df_3 = pd.read_csv("FM-busquedas1.csv")
+    df_3 = pd.read_csv("FM-busquedas.csv")
     df_3["Estructura"] = "FM-Index"
     data_busqueda = pd.concat([df_1,df_2,df_3])
     plot_tbusqueda_lengthpatron(data_busqueda)
