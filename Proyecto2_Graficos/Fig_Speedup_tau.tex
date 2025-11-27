@@ -1,0 +1,79 @@
+\documentclass[twoside,twocolumn, convert={density=900, size=6023, outext=_dpi900.png}]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{calc}
+
+\setlength{\parindent}{12pt}
+
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+\usepackage{ifpdf}
+\usepackage{microtype}
+\usepackage{euler}
+\usepackage{merriweather}
+\renewcommand{\ttdefault}{lmtt}
+\usepackage[italic]{mathastext}
+\usepackage{relsize}
+\usepackage{ragged2e}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{graphicx}
+\usepackage{etoolbox,xpatch}
+\usepackage{environ}
+\usepackage{lastpage}
+\usepackage{rotating}
+\usepackage{lscape}
+\usepackage{afterpage}
+\usepackage[absolute]{textpos}
+\usepackage{url}
+\usepackage{newfloat}
+\usepackage{mdframed}
+\usepackage{titlesec}
+\usepackage[noblocks]{authblk}
+\usepackage{xcolor}
+
+
+\usepackage{scrextend}
+\changefontsizes[10.5pt]{7.5pt}
+\usepackage[tableposition=top]{caption}
+\DeclareCaptionFont{figcaptionfont}{\fontsize{6pt}{9pt}\selectfont}
+\DeclareCaptionFont{tabcaptionfont}{\fontsize{7pt}{9pt}\selectfont}
+\captionsetup{justification=justified,singlelinecheck=false,labelfont={bf},labelsep=period}
+\captionsetup*[figure]{font=figcaptionfont,skip=10pt}
+\captionsetup*[table]{font=tabcaptionfont,skip=10pt-1em}
+
+% Skips for floats
+\setlength{\floatsep}{1pc+6pt}
+\setlength{\intextsep}{1pc+6pt}
+\setlength{\textfloatsep}{1pc+6pt}
+
+
+
+\begin{document}
+\pagecolor[RGB]{255,255,255}
+
+\begin{minipage}{\textwidth}
+	\centering
+\begin{minipage}[b]{\textwidth}
+	\centering
+  \includegraphics[scale=0.3]{Speedup_labels_tau.png}
+\end{minipage}
+
+\begin{minipage}[b]{0.35\textwidth}
+  \includegraphics[width=\linewidth]{Speedup_Bacteria_RS_tau.png}
+  \captionof*{figure}{(a) RefSeq Bacteria.}
+\end{minipage} \hspace*{1cm}
+\begin{minipage}[b]{0.35\textwidth}
+  \includegraphics[width=\linewidth]{Speedup_Influenza_A_tau.png}
+  \captionof*{figure}{(b) GenBank Influenza A.}
+\end{minipage} \hfill
+
+\end{minipage}
+\end{document}
