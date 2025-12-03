@@ -1,0 +1,7 @@
+# started on Tue Dec  2 19:37:32 2025
+
+1426,25;msec;task-clock;1426250424;100,00;0;CPUs utilized
+3410429566;;cycles;1426250424;100,00;2;GHz
+5500381186;;instructions;1426250424;100,00;1;insn per cycle
+3553104658;;L1-dcache-loads;1426250424;100,00;2;G/sec
+63089726;;L1-dcache-load-misses;1426250424;100,00;1;of all L1-dcache accesses

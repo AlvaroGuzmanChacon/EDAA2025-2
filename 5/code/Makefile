@@ -15,15 +15,15 @@ all: mm mmt mms
 # 2. REGLAS DE COMPILACIÓN
 mm: MatrixMultiplication.c
 	@echo "[BLD] Matrix multiplication"
-	@$(MY_C) $(C_FLAGS) -DN=$(N) -o mm MatrixMultiplication.c
+	@$(MY_C) $(C_FLAGS) -w -DN=$(N) -o mm MatrixMultiplication.c
 
 mmt: MatrixMultiplicationTransposed.c
 	@echo "[BLD] Matrix multiplication transposed"
-	@$(MY_C) $(C_FLAGS) -DN=$(N) -o mmt MatrixMultiplicationTransposed.c
+	@$(MY_C) $(C_FLAGS) -w -DN=$(N) -o mmt MatrixMultiplicationTransposed.c
 
 mms: MatrixMultiplicationSubmatrix.c
 	@echo "[BLD] Matrix multiplication submatrix"
-	@$(MY_C) $(C_FLAGS) -DN=$(N) -DCLS=$(CLS) -o mms MatrixMultiplicationSubmatrix.c
+	@$(MY_C) $(C_FLAGS) -w -DN=$(N) -DCLS=$(CLS) -o mms MatrixMultiplicationSubmatrix.c
 
 # 3. LIMPIEZA
 # Útil para borrar los ejecutables y forzar una recompilación limpia
