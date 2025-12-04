@@ -6,7 +6,7 @@ C_FLAGS=-O3 -Wextra -Wall
 CLS=64
 
 # Size of the square matriz
-N=1024
+N=4096
 
 # 1. OBJETIVO POR DEFECTO: 'all'
 # Esto le dice a make que para completar 'all', necesita los 3 archivos.

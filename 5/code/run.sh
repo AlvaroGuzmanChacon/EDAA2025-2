@@ -2,7 +2,7 @@
 
 REP=$1
 
-for ((i = 5; i <= 10; i++)); do
+for ((i = 11; i <= 12; i++)); do
 	N=$((2**i))
 	sed -i '9c\N='$N Makefile
 	sed -n '9p' Makefile
